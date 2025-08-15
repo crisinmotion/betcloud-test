@@ -11,11 +11,22 @@ body {
   background-size: cover;
   min-height: 100vh;
   font-family: "Proxima Nova", "Arial", "Helvetica", sans-serif;
+  overflow-x: hidden;
+}
+
+.main-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  @media (max-width: 992px) {
+    padding: 40px 0;
+  }
 }
 
 .container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -30,6 +41,10 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
 .heading {
@@ -42,6 +57,11 @@ body {
   &.heading--icon i {
     margin-right: 10px;
   }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    align-items: flex-start;
+  }
 }
 
 .content-wrapper {
@@ -52,6 +72,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .button {
