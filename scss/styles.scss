@@ -203,7 +203,7 @@ body {
   cursor: pointer;
   user-select: none;
 
-  img {
+  & > img {
     object-fit: fill;
     user-drag: none;
     -webkit-user-drag: none;
@@ -246,17 +246,23 @@ body {
     color: rgba(0, 0, 0, 0.4);
     align-items: center;
     font-size: 16px;
-    svg {
-      margin: auto 2px;
-      display: inline-block;
+    padding: 0.5px 0;
+    .fire {
+      width: 1em;
+      height: 1em;
+      display: inline-flex;
+      background-color: rgba(0, 0, 0, 0.4);
+      -webkit-mask: url("../assets/images/fire-icon.svg") no-repeat center /
+        contain;
+      mask: url("../assets/images/fire-icon.svg") no-repeat center / contain;
     }
-    &[data-rating="1"] svg:nth-child(-n + 1) path,
-    &[data-rating="2"] svg:nth-child(-n + 2) path,
-    &[data-rating="3"] svg:nth-child(-n + 3) path,
-    &[data-rating="4"] svg:nth-child(-n + 4) path,
-    &[data-rating="5"] svg:nth-child(-n + 5) path {
-      fill: $secondary;
-      fill-opacity: 1;
+
+    &[data-rating="1"] .fire:nth-child(-n + 1),
+    &[data-rating="2"] .fire:nth-child(-n + 2),
+    &[data-rating="3"] .fire:nth-child(-n + 3),
+    &[data-rating="4"] .fire:nth-child(-n + 4),
+    &[data-rating="5"] .fire:nth-child(-n + 5) {
+      background-color: $secondary;
     }
   }
 }
