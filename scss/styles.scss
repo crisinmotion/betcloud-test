@@ -179,7 +179,11 @@ body {
     &:disabled {
       background: rgba(0, 0, 0, 0.3);
       border-color: transparent;
-      cursor: initial;
+      cursor: not-allowed;
+
+      &:hover {
+        background: rgba(255, 0, 0, 0.1);
+      }
     }
     @media (hover: hover) and (pointer: fine) {
       &:hover:not(:disabled):not(:active):not(:focus) {
@@ -241,7 +245,7 @@ body {
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.15);
   background: $gray-400;
   will-change: auto;
-  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
+  transition: box-shadow 0.6s ease-out, transform 0.3s ease-out,
     opacity 0.3s ease-out;
   position: relative;
   cursor: pointer;
@@ -272,13 +276,16 @@ body {
   @media (hover: hover) and (pointer: fine) {
     &:hover,
     &:focus {
-      box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8);
-      animation: card-hover 0.3s ease-out forwards;
+      box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
+        0 0 40px 5px rgba(250, 158, 53, 0.7);
+      animation: card-hover 0.6s ease-out forwards,
+        shadowShift 6s infinite alternate 1s;
+
       z-index: 1;
     }
 
     &:not(:hover) {
-      animation: card-hover-reverse 0.3s ease-out forwards;
+      animation: card-hover-reverse 0.3s ease-in-out forwards;
     }
   }
 
@@ -331,7 +338,7 @@ body {
     transform: scale(1);
   }
   60% {
-    transform: perspective(700px) rotateX(10deg) scale(1.03);
+    transform: perspective(700px) rotateX(-14deg) scale(1.03);
   }
   100% {
     transform: scale(1.1);
@@ -343,27 +350,32 @@ body {
     transform: scale(1.1);
   }
   40% {
-    transform: perspective(700px) rotateX(6deg) scale(1.02);
+    transform: perspective(700px) rotateX(10deg) scale(1.02);
   }
   100% {
     transform: scale(1);
   }
 }
 
-@keyframes floatSide {
+@keyframes shadowShift {
   0% {
-    transform: scale(1.05) translateX(0px);
+    box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
+      0 0 40px 5px rgba(250, 158, 53, 0.7);
   }
   25% {
-    transform: scale(1.05) translateX(2px);
+    box-shadow: 0 0 80px 10px rgba(250, 158, 53, 0.7),
+      0 0 40px 5px rgba(163, 83, 255, 0.6);
   }
   50% {
-    transform: scale(1.05) translateX(-2px);
+    box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
+      0 0 40px 5px rgba(250, 158, 53, 0.7);
   }
   75% {
-    transform: scale(1.05) translateX(2px);
+    box-shadow: 0 0 80px 10px rgba(250, 158, 53, 0.7),
+      0 0 40px 5px rgba(163, 83, 255, 0.6);
   }
   100% {
-    transform: scale(1.05) translateX(0px);
+    box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
+      0 0 40px 5px rgba(250, 158, 53, 0.7);
   }
 }
