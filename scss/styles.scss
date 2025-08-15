@@ -40,6 +40,10 @@ body {
   }
 }
 
+.content-wrapper {
+  row-gap: 12px;
+}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -178,8 +182,6 @@ body {
 }
 
 .game-grid {
-  padding: 12px 0;
-
   &:hover {
     .card:not(:hover) {
       opacity: 0.5;
@@ -230,7 +232,7 @@ body {
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    padding: 6px 10px;
+    padding: 5px 10px;
 
     h6 {
       margin-right: 5px;
