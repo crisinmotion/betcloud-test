@@ -1,0 +1,283 @@
+@use "resets" as *;
+@use "fonts" as *;
+@use "utils" as *;
+
+html {
+  background: linear-gradient(180deg, #222934 0%, #1d222b 100%);
+}
+
+body {
+  background: url("../assets/images/image-bg.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: "Proxima Nova", sans-serif;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  display: flex;
+  align-self: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.heading {
+  text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+
+  &.heading--icon i {
+    margin-right: 10px;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button {
+  @extend .font-sm;
+  @extend .font-bold;
+  @extend .rounded;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0px 1px 0px #ffffff66;
+  position: relative;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 11px 12px;
+  transition: all 0.3s ease-out;
+  &.button-primary {
+    background: linear-gradient(180deg, $primary-light 0%, $secondary 100%);
+    border: 2px solid $primary-light;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    // adding fallback for browsers that don't support fill-available
+    width: fill-available;
+    width: -webkit-fill-available;
+    height: fill-available;
+    height: -webkit-fill-available;
+    border-radius: inherit;
+    border: 2px solid $text-dark;
+    box-shadow: inset 0px 0px 0px 2px $primary-700;
+  }
+
+  &:hover {
+    background: linear-gradient(180deg, #6318b1 0%, #4720a1 100%);
+    color: $primary-light;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    border-color: $purple;
+    box-shadow: 0 0 30px rgba(163, 83, 255, 0.4);
+
+    &:before {
+      box-shadow: inset 0px 0px 0px 2px $purple-light;
+    }
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+      108.58deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border-color: $primary-light;
+    text-shadow: 0 0 3px rgba(250, 158, 53, 0.7);
+    color: $primary-light;
+
+    &:before {
+      box-shadow: none;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.prev-next {
+  display: flex;
+  button {
+    @extend .text-primary;
+    appearance: none;
+    padding-block-end: 0;
+    padding-block-start: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    padding: 13.5px 16px;
+    cursor: pointer;
+    background: linear-gradient(
+      108.58deg,
+      rgba(255, 255, 255, 0.11) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    transition: all 0.3s ease-out;
+
+    i {
+      transition: transform 0.3s ease-out;
+    }
+
+    &:disabled {
+      background: rgba(0, 0, 0, 0.3);
+      border-color: transparent;
+      cursor: initial;
+    }
+
+    &:hover:not(:disabled):not(:active):not(:focus) {
+      background-color: $secondary;
+      color: $white;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $text-dark;
+      color: $white;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .prev {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    &:hover:not(:disabled) {
+      & i {
+        transform: translateX(-2px);
+      }
+    }
+  }
+
+  .next {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    &:hover:not(:disabled) {
+      & i {
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+.game-grid {
+  padding: 12px 0;
+
+  &:hover {
+    .card:not(:hover) {
+      opacity: 0.5;
+    }
+  }
+}
+
+.card {
+  @extend .rounded;
+  @extend .flex-column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.15);
+  background: $gray-400;
+  will-change: auto;
+  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
+    opacity 0.3s ease-out;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  img {
+    object-fit: fill;
+    user-drag: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 194px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8);
+    animation: card-hover 0.3s ease-out forwards;
+    z-index: 1;
+  }
+
+  &:not(:hover) {
+    animation: card-hover-reverse 0.3s ease-out forwards;
+  }
+
+  .details {
+    @extend .text-uppercase;
+    @extend .font-extrabold;
+    @extend .font-xs;
+    color: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 6px 10px;
+
+    h6 {
+      margin-right: 5px;
+      line-height: 1;
+      transform: translateY(2px);
+    }
+  }
+
+  .rating {
+    color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    font-size: 16px;
+    svg {
+      margin: auto 2px;
+      display: inline-block;
+    }
+    &[data-rating="1"] svg:nth-child(-n + 1) path,
+    &[data-rating="2"] svg:nth-child(-n + 2) path,
+    &[data-rating="3"] svg:nth-child(-n + 3) path,
+    &[data-rating="4"] svg:nth-child(-n + 4) path,
+    &[data-rating="5"] svg:nth-child(-n + 5) path {
+      fill: $secondary;
+      fill-opacity: 1;
+    }
+  }
+}
+
+@keyframes card-hover {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: perspective(700px) rotateX(10deg) scale(1.03);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes card-hover-reverse {
+  0% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: perspective(700px) rotateX(6deg) scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
