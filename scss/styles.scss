@@ -272,6 +272,10 @@ body {
     -ms-user-drag: none;
     -webkit-tap-highlight-color: transparent;
     min-height: 194px;
+
+    @media (max-width: 640px) {
+      min-height: auto;
+    }
   }
   @media (hover: hover) and (pointer: fine) {
     &:hover,
@@ -299,7 +303,10 @@ body {
     align-items: center;
     vertical-align: middle;
     padding: 5px 10px;
-
+    @media (max-width: 360px) {
+      flex-direction: column;
+      gap: 5px;
+    }
     h6 {
       margin-right: 4px;
       line-height: 1;
