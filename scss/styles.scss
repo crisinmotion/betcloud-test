@@ -95,6 +95,7 @@ body {
   padding: 11px 14.5px;
   transition: all 0.3s ease-out;
   line-height: 1.5;
+  user-select: none;
   &.button-primary {
     background: linear-gradient(180deg, $primary-light 0%, $secondary 100%);
     border: 2px solid $primary-light;
@@ -167,7 +168,7 @@ body {
       rgba(255, 255, 255, 0.06) 100%
     );
     transition: all 0.3s ease-out;
-
+    user-select: none;
     i {
       transition: transform 0.3s ease-out;
       font-size: 16px;
@@ -241,7 +242,7 @@ body {
   overflow: hidden;
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.15);
   background: $gray-400;
-  will-change: auto;
+  will-change: box-shadow opacity, transform;
   transition: box-shadow 0.6s ease-out, transform 0.3s ease-out,
     opacity 0.3s ease-out;
   position: relative;
@@ -275,7 +276,7 @@ body {
       -ms-user-drag: none;
       -webkit-tap-highlight-color: transparent;
       aspect-ratio: 1 / 1;
-      will-change: auto;
+      will-change: transform, filter, opacity;
       transition: transform 0.2s ease-out, filter 0.3s ease-out;
       opacity: 0;
       animation: fade-in 0.3s ease-out forwards 0.4s;
