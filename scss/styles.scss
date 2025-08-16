@@ -37,6 +37,7 @@ body {
 
 .content-wrapper {
   display: flex;
+  row-gap: 12px;
   align-self: center;
 }
 
@@ -66,10 +67,6 @@ body {
     width: 100%;
     align-items: flex-start;
   }
-}
-
-.content-wrapper {
-  row-gap: 12px;
 }
 
 .navigation {
@@ -108,7 +105,7 @@ body {
     top: 0;
     left: 0;
     // adding fallback for browsers that don't support fill-available
-    width: fill-available;
+    width: 100%;
     width: -webkit-fill-available;
     height: fill-available;
     height: -webkit-fill-available;
@@ -256,9 +253,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: fill-available;
+    width: 100%;
     width: -webkit-fill-available;
-    height: fill-available;
+    height: 100%;
     height: -webkit-fill-available;
     @extend .rounded;
     box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
@@ -271,10 +268,10 @@ body {
     -moz-user-drag: none;
     -ms-user-drag: none;
     -webkit-tap-highlight-color: transparent;
-    min-height: 194px;
+    aspect-ratio: 1 / 1;
 
     @media (max-width: 640px) {
-      min-height: auto;
+      aspect-ratio: auto;
     }
   }
   @media (hover: hover) and (pointer: fine) {
@@ -326,7 +323,7 @@ body {
       margin: auto 1px;
       background-color: rgba(0, 0, 0, 0.4);
       -webkit-mask: url("../assets/images/fire-icon.svg") no-repeat center /
-        100%;
+        contain;
       mask: url("../assets/images/fire-icon.svg") no-repeat center / contain;
     }
 
