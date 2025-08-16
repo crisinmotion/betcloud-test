@@ -283,7 +283,7 @@ body {
       box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
         0 0 40px 5px rgba(250, 158, 53, 0.7);
       animation: card-hover 0.6s ease-out forwards,
-        shadowShift 6s infinite alternate 1s;
+        shadow-shift 6s infinite alternate 1s;
 
       z-index: 1;
     }
@@ -330,12 +330,14 @@ body {
       mask: url("../assets/images/fire-icon.svg") no-repeat center / contain;
     }
 
-    &[data-rating="1"] .fire:nth-child(-n + 1),
-    &[data-rating="2"] .fire:nth-child(-n + 2),
-    &[data-rating="3"] .fire:nth-child(-n + 3),
-    &[data-rating="4"] .fire:nth-child(-n + 4),
-    &[data-rating="5"] .fire:nth-child(-n + 5) {
-      background-color: $secondary;
+    @for $rating from 1 through 5 {
+      &[data-rating="#{$rating}"] {
+        @for $i from 1 through $rating {
+          .fire:nth-child(#{$i}) {
+            animation: fire-bg 0.3s ease-out forwards #{($i - 1) * 0.1}s;
+          }
+        }
+      }
     }
   }
 }
@@ -364,7 +366,7 @@ body {
   }
 }
 
-@keyframes shadowShift {
+@keyframes shadow-shift {
   0% {
     box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
       0 0 40px 5px rgba(250, 158, 53, 0.7);
@@ -384,5 +386,14 @@ body {
   100% {
     box-shadow: 0 0 80px 10px rgba(163, 83, 255, 0.8),
       0 0 40px 5px rgba(250, 158, 53, 0.7);
+  }
+}
+
+@keyframes fire-bg {
+  0% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    background-color: $secondary;
   }
 }
