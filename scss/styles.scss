@@ -259,19 +259,24 @@ body {
     height: -webkit-fill-available;
     @extend .rounded;
     box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+    z-index: 5;
   }
 
-  & > img {
-    object-fit: cover;
-    user-drag: none;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-    -ms-user-drag: none;
-    -webkit-tap-highlight-color: transparent;
-    aspect-ratio: 1 / 1;
+  & .thumbnail-wrap {
+    img {
+      object-fit: cover;
+      user-drag: none;
+      -webkit-user-drag: none;
+      -moz-user-drag: none;
+      -ms-user-drag: none;
+      -webkit-tap-highlight-color: transparent;
+      aspect-ratio: 1 / 1;
+      will-change: auto;
+      transition: transform 0.2s ease-out, filter 0.3s ease-out;
 
-    @media (max-width: 640px) {
-      aspect-ratio: auto;
+      @media (max-width: 640px) {
+        aspect-ratio: auto;
+      }
     }
   }
   @media (hover: hover) and (pointer: fine) {
@@ -287,6 +292,15 @@ body {
 
     &:not(:hover) {
       animation: card-hover-reverse 0.3s ease-in-out forwards;
+    }
+
+    &:active {
+      .thumbnail-wrap {
+        img {
+          filter: brightness(1.1);
+          transform: scale(1.02);
+        }
+      }
     }
   }
 
