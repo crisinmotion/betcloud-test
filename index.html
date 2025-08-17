@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="site.webmanifest" />
     <link
       rel="shortcut icon"
       href="./assets/images/favicon/favicon.ico"
@@ -16,6 +17,10 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <title>BetCloud Design Implementation Test</title>
+    <meta
+      name="description"
+      content="A simple implementation test for BetCloud"
+    />
   </head>
   <body>
     <main class="flex-column main-container">
@@ -23,7 +28,7 @@
         <nav class="navbar">
           <div class="heading heading--icon text-white font-bold font-md">
             <i class="fa-solid fa-fire text-primary text-glow"></i>
-            <h2 class="inline-flex">Featured Games</h2>
+            <h1 class="inline-flex">Featured Games</h1>
           </div>
           <div class="navigation">
             <button class="button button-primary">All Featured</button>
@@ -38,15 +43,16 @@
           </div>
         </nav>
         <div class="grid grid-6 w-full game-grid">
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Himalayan-Wild_Game-Tile_500x500_Game-Tile_82.jpg"
                 alt="Himalayan Wild"
+                fetchpriority="high"
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="4">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -56,7 +62,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Sweet-Bonanza_500x500.jpg"
@@ -64,7 +70,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="3">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -74,7 +80,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Frozen-Tropics_500x500.jpg"
@@ -82,7 +88,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="2">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -92,7 +98,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Dragon-Kingdom-Eyes-of-Fire_500x500.jpg"
@@ -100,7 +106,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="5">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -110,7 +116,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Tropical-Tiki_500x500.jpg"
@@ -118,7 +124,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="3">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -128,7 +134,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Queen-of-Gods_500x500.jpg"
@@ -136,7 +142,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="1">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -146,7 +152,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Wheel-'O'-Gold_500x500.jpg"
@@ -154,7 +160,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="3">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -164,7 +170,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Big-Bass-Bonanza_500x500.jpg"
@@ -172,7 +178,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="3">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -182,7 +188,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/The-Wild-Machine_500x500.jpg"
@@ -190,7 +196,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="4">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -200,7 +206,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Volcano-Goddess_500x500.jpg"
@@ -208,7 +214,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="4">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -218,7 +224,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Wild-Wild-Pearls_500x500.jpg"
@@ -226,7 +232,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="3">
                 <div class="fire"></div>
                 <div class="fire"></div>
@@ -236,7 +242,7 @@
               </div>
             </div>
           </a>
-          <a class="card" tabindex="0">
+          <a class="card" tabindex="0" href="#">
             <div class="thumbnail-wrap">
               <img
                 src="./assets/images/games/Wild-Hop-&-Drop_500x500.jpg"
@@ -244,7 +250,7 @@
               />
             </div>
             <div class="details">
-              <h6 class="inline-flex">Volatility</h6>
+              <h2 class="inline-flex">Volatility</h2>
               <div class="rating inline-flex" data-rating="4">
                 <div class="fire"></div>
                 <div class="fire"></div>

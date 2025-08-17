@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background: url("../assets/images/image-bg.png") no-repeat center center;
+  background: url("../assets/images/image-bg.webp") no-repeat center center;
   background-size: cover;
   min-height: 100vh;
   font-family: "Proxima Nova", "Arial", "Helvetica", sans-serif;
@@ -57,7 +57,7 @@ body {
   text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
-  h2 {
+  h1 {
     line-height: 1;
   }
   &.heading--icon i {
@@ -249,6 +249,8 @@ body {
   position: relative;
   cursor: pointer;
   user-select: none;
+  appearance: none;
+  text-decoration: none;
 
   &::before {
     content: "";
@@ -279,6 +281,7 @@ body {
       aspect-ratio: 1 / 1;
       will-change: transform, filter, opacity;
       transition: transform 0.2s ease-out, filter 0.3s ease-out;
+      //This fade-in animation have a very slight FCP performance score impact in Page Speed Insights.
       opacity: 0;
       animation: fade-in 0.3s ease-out forwards 0.4s;
       width: 100%;
@@ -329,7 +332,7 @@ body {
       flex-direction: column;
       gap: 5px;
     }
-    h6 {
+    h2 {
       margin-right: 4px;
       line-height: 1;
       transform: translateY(2px);
